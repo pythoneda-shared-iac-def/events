@@ -1,2 +1,3 @@
-# infrastructure-events
-Definition for pythoneda-iac/infrastructure-events
+# Events
+
+Definition for [PythonEDA-IaC Events](https://github.com/pythoneda-iac/events "PythonEDA IaC Events").

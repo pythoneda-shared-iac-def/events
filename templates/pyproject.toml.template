@@ -1,8 +1,8 @@
 # templates/pyprojecttoml.template
 #
-# This file is the template for pythoneda-iac's events
+# This file is the template for pythoneda-shared-iac's events
 #
-# Copyright (C) 2024-today pythoneda IaC
+# Copyright (C) 2024-today pythoneda-shared-iac/events
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

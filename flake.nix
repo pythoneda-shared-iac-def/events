@@ -40,8 +40,8 @@
       let
         org = "pythoneda-shared-iac";
         repo = "events";
-        version = "0.0.5";
-        sha256 = "179zxkcmkn33q98453378rfz73bfr7f8hiwvricqsmg2v9zy6732";
+        version = "0.0.8";
+        sha256 = "10fgvl1rra9g6v12ny3qdzqbcvqj634m35yqajw60rvn019q4939";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.shared.iac.events";
         package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;

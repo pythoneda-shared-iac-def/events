@@ -19,19 +19,19 @@
 {
   description = "Nix flake for pythoneda-shared-iac/events";
   inputs = rec {
-    nixos.url = "github:NixOS/nixpkgs/24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/24.05";
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
     pythoneda-shared-pythonlang-banner = {
-      inputs.nixos.follows = "nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
-      url = "github:pythoneda-shared-pythonlang-def/banner/0.0.71";
+      url = "github:pythoneda-shared-pythonlang-def/banner/0.0.72";
     };
     pythoneda-shared-pythonlang-domain = {
       inputs.flake-utils.follows = "flake-utils";
-      inputs.nixos.follows = "nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
-      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.93";
+      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.94";
     };
   };
   outputs = inputs:
@@ -45,7 +45,7 @@
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.shared.iac.events";
         package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
-        pkgs = import nixos { inherit system; };
+        pkgs = import nixpkgs { inherit system; };
         description = "Infrastructure-as-Code Events in PythonEDA";
         license = pkgs.lib.licenses.gpl3;
         homepage = "https://github.com/${org}/${repo}";
@@ -53,9 +53,9 @@
         archRole = "E";
         space = "I";
         layer = "D";
-        nixosVersion = builtins.readFile "${nixos}/.version";
+        nixpkgsVersion = builtins.readFile "${nixpkgs}/.version";
         nixpkgsRelease =
-          builtins.replaceStrings [ "\n" ] [ "" ] "nixos-${nixosVersion}";
+          builtins.replaceStrings [ "\n" ] [ "" ] "nixpkgs-${nixpkgsVersion}";
         shared = import "${pythoneda-shared-pythonlang-banner}/nix/shared.nix";
         pythoneda-shared-iac-events-for = { python
           , pythoneda-shared-pythonlang-banner
